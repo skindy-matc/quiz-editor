@@ -10,7 +10,7 @@ export class AppComponent {
   myWidth = 250;
 
   makeImageLarger() {
-    this.myWidth *= 1.3;
+    this.myWidth *= 2.3;
   }
 
   //read only getter property
