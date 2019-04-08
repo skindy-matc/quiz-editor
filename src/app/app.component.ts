@@ -17,4 +17,8 @@ export class AppComponent {
     // else set to bluey
     return this.myWidth > 400 ? 'red' : 'blue';
   }
+
+  get myWidthBool() {
+    return this.myWidth > 400;
+  }
 }
