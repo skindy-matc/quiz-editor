@@ -8,9 +8,10 @@ export class QuizService {
 
   constructor(private builtInAngularHttpClient: HttpClient) { }
   getQuizes() {
-    return [
-      {name: 'quiz 1', numberQuestion: 3}
-      ,{name: 'quiz 2', numberQuestion: 0} 
-    ];
+    return this.builtInAngularHttpClient.get("https://modern-js.azurewebsites.net/api/HttpTriggerJS1?code=8XD3vN3ehHLdZacBQJQhgUnNst9202gdd5VM3kWCytDkz2nXhia6kA==&name=Mystery%20Quiz");
+    /*return [
+      {name: 'quiz 1', numberQuestions: 3}
+      ,{name: 'quiz 2', numberQuestions: 0} 
+    ]; */
   }
 }

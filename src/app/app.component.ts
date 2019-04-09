@@ -37,10 +37,22 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     //console.log(this.qSvc.getQuizes());
-    this.quizes = this.qSvc.getQuizes().map(x => ({
+    /*this.quizes = this.qSvc.getQuizes().map(x => ({
       name: x.name
       ,numberOfQuestions: x.numberQuestion
-    }));
+    })); */
+    this.qSvc.getQuizes().subscribe(
+      (data) => {
+        this.quizes = (<any[]> data).map(x => 
+          ({
+            name: x.name
+            ,numberOfQuestions: x.numberQuestions
+          }));
+      }
+      ,(error) => {
+        console.log(error);
+      }
+    );
   };
   title = 'quiz-editor';
   myWidth = 250;
