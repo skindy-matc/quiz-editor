@@ -8,11 +8,10 @@ export class QuizService {
   constructor() { }
 
   getQuizzes() {
-    
-    // Dummy array of quiz objects
+    // Dummy array of quiz
     return [
-      { name: 'Quiz 1', numberOfQuestions: 3 }
-      , { name: 'Quiz 2', numberOfQuestions: 0 }
+      { name: 'Quiz 1', numberQuestions: 3 }
+      , { name: 'Quiz 2', numberQuestions: 0 }
     ];
   }
 }
