@@ -8,8 +8,8 @@ export class QuizService {
   constructor() { }
   getQuizes() {
     return [
-      {name: 'quiz 1', numberOfQuestions: 3}
-      ,{name: 'quiz 2', numberOfQuestions: 0} 
+      {name: 'quiz 1', numberQuestion: 3}
+      ,{name: 'quiz 2', numberQuestion: 0} 
     ];
   }
 }
