@@ -6,7 +6,7 @@
             <br>
             <br>
             <div class="list-group">
-                <a [class.active]="q === selectQuiz" (click)="selectQuiz(q)" href="#" *ngFor="let q of quizes" class="list-group-item list-item-group-action">
+                <a [class.active]="q === selectedQuiz" (click)="selectQuiz(q)" href="#" *ngFor="let q of quizes" class="list-group-item list-item-group-action">
                     {{q.name}}
                 </a>
 
