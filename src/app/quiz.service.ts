@@ -7,7 +7,7 @@ export class QuizService {
 
   constructor() { }
 
-  getQuizzes () {
+   getQuizzes () {
     return [
       {name: 'Quiz 1', numberOfQuestion: 3},
     
