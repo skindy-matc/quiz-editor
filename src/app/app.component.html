@@ -6,7 +6,10 @@
       >Add New Quiz</button>
       <div class="list-group">
      
-          <a class="list-group-item list-group-item-action" [class.active] ="quiz === selectedQuiz" (click) = "selectQuiz(quiz)" href="#"  *ngFor = " let quiz of quizzes">{{quiz.name}}</a>
+          <a class="list-group-item list-group-item-action" 
+          [class.active] ="quiz === selectedQuiz" 
+          (click) = "selectQuiz(quiz)" href="#"  
+          *ngFor = " let quiz of quizzes">{{quiz.name}}</a>
        
    
       </div>
@@ -22,7 +25,10 @@
       
       <div class="card">
       <div class="card-herder">General</div>
-      <div class="card-body">{{selectedQuiz.name}}</div>
+      <div class="card-body"> 
+        <input type="text" 
+        [(ngModel)] = "selectedQuiz.name" class="form-control">
+      </div>
     </div>
     <div class="card">
       <div class="card-herder">Questions</div>
