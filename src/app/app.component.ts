@@ -1,11 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { QuizService } from './quiz.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+
+  /**
+   *
+   */
+  constructor(private qSVC: QuizService) {
+    
+    
+  }
+
+  ngOnInit= () => {
+    console.log(this.qSVC.getQuizzes());
+  }
   title = 'quiz-editor';
   myWidth = 250;
 
@@ -18,4 +31,3 @@ export class AppComponent {
     return this.myWidth > 400 ? "red" : "blue";
   }
 }
-
