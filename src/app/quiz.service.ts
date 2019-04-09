@@ -7,14 +7,12 @@ export class QuizService {
 
   constructor() { }
 
-  getQuizzes(){
+  getQuizzes() {
 
-    //Dummy array of quiz objects.....
-
-
+    // Dummy array of quiz objects...
     return [
-      {name: 'Quiz 1', numberOfQuestions: 3}
-      ,{name: 'Quiz 2', numberOfQuestions: 0}
-    ]
+      { name: 'Quiz 1', numberOfQuestions: 3 }
+      , { name: 'Quiz 2', numberOfQuestions: 0 }
+    ];
   }
 }
