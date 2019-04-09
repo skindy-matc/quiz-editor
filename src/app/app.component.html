@@ -6,7 +6,12 @@
       <br>
       <br>
       <div class="list-group">
-        <div class="list-group-item">Foo</div>
+        <a
+          href="#" 
+          *ngFor="let q of quizzes" 
+          class="list-group-item list-group-item-action">
+          {{ q.name }}
+        </a>
       </div>
     </div>
     <div class="col-md-8">
