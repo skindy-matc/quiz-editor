@@ -6,10 +6,14 @@
       >Add New Quiz</button>
       <div class="list-group">
      
-          <a class="list-group-item list-group-item-action" 
+          <a class="list-group-item list-group-item-action d-flex justify-content-between align-items-center" 
           [class.active] ="quiz === selectedQuiz" 
           (click) = "selectQuiz(quiz)" href="#"  
-          *ngFor = " let quiz of quizzes">{{quiz.name}}</a>
+          *ngFor = " let quiz of quizzes">{{quiz.name}} 
+          <span class="badge badge badge-secondary"
+          [class.bg-danger] =" quiz.numberOfQuestions === 0"
+          >
+            {{quiz.numberOfQuestions}}</span></a>
        
    
       </div>
