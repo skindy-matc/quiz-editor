@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http'; // have to manually update from str
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
 
-  constructor() { }
+  constructor(private angularHttpClient: HttpClient) { }
 
   getQuizzes() {
     // dummy array of quiz objects
