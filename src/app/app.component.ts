@@ -1,21 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from './quiz.service';
 
+interface QuizDisplay {
+  name: string;
+  numberOfQuestions:number;
+  
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent implements OnInit{
   constructor(private qSvc : QuizService) {
     //Use the quiz service here , but ... If it fails , the creation
     //of the componeb fails : )
-
   }
+  quizzes: QuizDisplay[] = [];
 
   ngOnInit() {
 
-    console.log(this.qSvc.getQuizzes());
+    // console.log(this.qSvc.getQuizzes());
+    this.quizzes = this.qSvc.getQuizzes();
 
   }
 
