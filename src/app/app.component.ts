@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from './quiz.service';
 
-
-interface QuizDisplay{
-
+interface QuizDisplay {
   name: string;
   numberOfQuestions: number;
-
 }
 
 @Component({
@@ -14,19 +11,25 @@ interface QuizDisplay{
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
-  
-  constructor(private qSVC: QuizService) {
-    
-    
+  constructor(private qSvc: QuizService) {
+    // Use the quiz service here, but... If it fails, the creation
+    // of the component fails : - (
   }
+
   quizzes: QuizDisplay[] = [];
+  selectedQuiz: QuizDisplay = undefined;
 
-  ngOnInit= () => {
-    // console.log(this.qSVC.getQuizzes());
-    this.quizzes = this.qSVC.getQuizzes();
+  selectQuiz(q: QuizDisplay) {
+    this.selectedQuiz = q;
   }
+
+  ngOnInit() {
+    //console.log(this.qSvc.getQuizzes());
+    this.quizzes = this.qSvc.getQuizzes();
+  };
+
   title = 'quiz-editor';
   myWidth = 250;
 
