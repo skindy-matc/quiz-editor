@@ -43,20 +43,23 @@ export class AppComponent implements OnInit {
     this.selectedQuiz = newQuiz;
   }
 
+  serviceDown = false;
+
   // so use ngOnInit instead
   ngOnInit() {
     // rename numberQuestions property to numberOfQuestions 
     this.qSvc.getQuizzes().subscribe(
       (data) => {
         console.log(data);
+        this.quizzes = (<any[]> data).map(x => ({
+          name: x.name,
+          numberOfQuestions: x.numberQuestions
+        }));
       },
       (error) => {
         console.log(error);
+        this.serviceDown = true;
       }
     );
-    // this.quizzes.map(x => ({
-    //   name: x.name,
-    //   numberOfQuestions: x.numberQuestions
-    // }));
   }
 }
