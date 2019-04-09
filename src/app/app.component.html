@@ -72,7 +72,11 @@ select one quiz
         general
     </div>
     <div class="card-body">
-       {{selectedQuiz.name}}
+      <!-- // {{selectedQuiz.name}} -->
+      <input 
+      type="text" 
+      [(ngModel)] = "selectedQuiz.name"
+      class = "form-control">
     </div>
   </div>
 <br >
