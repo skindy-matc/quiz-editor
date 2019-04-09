@@ -1,46 +1,54 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <br>
-      <button class="btn btn-outline-primary">Add New Quiz</button>
-      <br>
-      <br>
-      <div class="list-group">
-        <div class="list-group-item">Foo</div>
-      </div>
-    </div>
-    <div class="col-md-8">
-      <br>
-      <button class="btn btn-outline-success">Save</button>
-      <button class="btn btn-link">Cancel</button>
-      <br>
-      <br>
-      <div class="card">  
-        <div class="card-header">
-          General
-        </div>
-        <div class="card-body">
-          Coming soon!
+    <div class="row">
+      <div class="col-md-4">
+        <br>
+        <button class="btn btn-outline-primary">Add New Quiz</button>
+        <br>
+        <br>
+        <div class="list-group">
+          <a
+          (click)= "selectQuizzes"
+          *ngFor = "let q of quizzes"
+          class = "list-group-item list-group-item-action"
+          {{q.name}}>
+        
+        </a>
+        
+         </div>
         </div>
       </div>
-      <br>
-      <div class="card">
-        <div class="card-header">
-          Questions
+      <div class="col-md-8">
+        <br>
+        <button class="btn btn-outline-success">Save</button>
+        <button class="btn btn-link">Cancel</button>
+        <br>
+        <br>
+        <div class="card">  
+          <div class="card-header">
+            General
+          </div>
+          <div class="card-body">
+            Coming soon!
+          </div>
         </div>
-        <div class="card-body">
-          Coming soon!
+        <br>
+        <div class="card">
+          <div class="card-header">
+            Questions
+          </div>
+          <div class="card-body">
+            Coming soon!
+          </div>
         </div>
-      </div>
-      <br>
-      <div class="card">
-        <div class="card-header">
-          Other
-        </div>
-        <div class="card-body">
-          <button class="btn btn-outline-danger">Delete This Quiz</button>
+        <br>
+        <div class="card">
+          <div class="card-header">
+            Other
+          </div>
+          <div class="card-body">
+            <button class="btn btn-outline-danger">Delete This Quiz</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
