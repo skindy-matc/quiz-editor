@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-4"><button class="btn btn-outline-primary">Add New Quiz</button>
+    <div class="col-md-4"><button 
+      (click) = "addNewQuiz()"
+      class="btn btn-outline-primary"
+      >Add New Quiz</button>
       <div class="list-group">
      
           <a class="list-group-item list-group-item-action" [class.active] ="quiz === selectedQuiz" (click) = "selectQuiz(quiz)" href="#"  *ngFor = " let quiz of quizzes">{{quiz.name}}</a>
@@ -10,7 +13,7 @@
     </div>
       <div class="col-md-8" *ngIf="!selectedQuiz">
         <div class="card">
-          <div class="card-body">Selct or add Aquiz</div>
+          <div class="card-body">Select or add Aquiz</div>
         </div>
       </div>
     
