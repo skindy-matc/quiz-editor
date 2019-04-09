@@ -2,3 +2,8 @@
 .card {
     padding: 1em;
 }
+    
+    
+.list-group-item{
+    display: block;
+}

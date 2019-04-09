@@ -19,6 +19,10 @@ export class AppComponent implements OnInit{
     //of the componeb fails : )
   }
   quizzes: QuizDisplay[] = [];
+  selectedQuiz: QuizDisplay = undefined;
+  selectQuiz(quiz:QuizDisplay) {
+    this.selectedQuiz = quiz;
+  }
 
   ngOnInit() {
 

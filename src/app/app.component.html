@@ -2,16 +2,24 @@
   <div class="row">
     <div class="col-md-4"><button class="btn btn-outline-primary">Add New Quiz</button>
       <div class="list-group">
-          <a href="#" class="list-group-item" *ngFor = " let quiz of quizzes">{{quiz.name}}</a>
-        </div>
+     
+          <a class="list-group-item list-group-item-action" [class.active] ="quiz === selectedQuiz" (click) = "selectQuiz(quiz)" href="#"  *ngFor = " let quiz of quizzes">{{quiz.name}}</a>
+       
+   
+      </div>
     </div>
+      <div class="col-md-8" *ngIf="!selectedQuiz">
+        <div class="card">
+          <div class="card-body">Selct or add Aquiz</div>
+        </div>
+      </div>
     
-    <div class="col-md-8"><button class="btn btn-outline-success">Save</button>
+    <div class="col-md-8" *ngIf ="selectedQuiz"><button class="btn btn-outline-success">Save</button>
       <button class="btn btn-link">Cancel</button>
       
       <div class="card">
       <div class="card-herder">General</div>
-      <div class="card-body">Coming soon</div>
+      <div class="card-body">{{selectedQuiz.name}}</div>
     </div>
     <div class="card">
       <div class="card-herder">Questions</div>
