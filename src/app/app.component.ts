@@ -81,4 +81,15 @@ export class AppComponent implements OnInit {
   get titleColor() {
     return this.myWidth > 400 ? "red" : "blue";
   }
+
+  addNewQuestion() {
+    this.selectedQuiz.questions = [
+      ...this.selectedQuiz.questions
+      , { name: "New Untitled Question" }
+    ];
+  }
+
+  removeQuestion(questionToRemove: QuestionDisplay) {
+    this.selectedQuiz.questions = this.selectedQuiz.questions.filter(x => x !== questionToRemove);
+  }
 }
