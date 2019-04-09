@@ -6,8 +6,10 @@
             <br>
             <br>
             <div class="list-group">
-                <a [class.active]="q === selectedQuiz" (click)="selectQuiz(q)" href="#" *ngFor="let q of quizes" class="list-group-item list-item-group-action">
+                <a [class.active]="q === selectedQuiz" (click)="selectQuiz(q)" href="#" *ngFor="let q of quizes" class="list-group-item list-item-group-action d-flex justify-content-between align-items-center">
                     {{q.name}}
+                    <span class="badge badge-secondary"
+                    [class.bg-danger]="q.numberOfQuestions === 0">{{q.numberOfQuestions}}</span>
                 </a>
 
             </div>
