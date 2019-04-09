@@ -24,21 +24,33 @@ export class AppComponent implements OnInit {
   selectQuiz(q: QuizDisplay) {
     this.selectedQuiz = q;
   }
-  addNewQuiz(){
+
+  addNewQuiz() {
+
+    // Create the new quiz.
     const newQuiz: QuizDisplay = {
       name: "Untitled Quiz"
       , numberOfQuestions: 0
     };
+
+    // Create a new quiz list with the new quiz...
+    //
+    // a.k.a. "Add the new quiz to the list"
     this.quizzes = [
-      ...this.quizzes, 
-      newQuiz
+      ...this.quizzes
+      , newQuiz
     ];
-    //Select the newly created quiz
-    this.selectedQuiz = newQuiz;
+
+    // Select the newly added quiz.
+    this.selectedQuiz = newQuiz; 
   }
+
   ngOnInit() {
     //console.log(this.qSvc.getQuizzes());
-    this.quizzes = this.qSvc.getQuizzes();
+    this.quizzes = this.qSvc.getQuizzes().map(x => ({
+      name: x.name
+      , numberOfQuestions: x.numberQuestions
+    }));
   };
 
   title = 'quiz-editor';
