@@ -30,8 +30,11 @@ Here are some links to help you start: </h2>
   <button class="btn btn-outline-primary">add new quiz</button>
   <br><br>
   <div class="list-group">
-    
-<a href="#"
+
+<a 
+  [class.active] = "q === selectedQuiz"  
+  (click)="selectQuiz(q)"
+  href="#"
   *ngFor="let q of quizzes" 
   class="list-group-item list-group-item-action"> 
   {{q.name}}
@@ -40,22 +43,32 @@ Here are some links to help you start: </h2>
 </div>
 </div>
 
-<div class="col-md-8"> 
+
+<div class="col-md-8" *ngIf="!selectedQuiz">
+  <div class="card">
+    <br>
+  <div class="card-body">
+select one quiz
+  </div>
+  </div>
+</div>
+
+
+
+<div class="col-md-8" *ngIf="selectedQuiz"> 
   <br>
   <button class="btn btn-outline-success">Save</button>
   <button class="btn btn-link">Cancel</button>
   <br>
   <br>
 
-  
-
 
   <div class="card">
     <div class="card-header">
-        questions
+        general
     </div>
     <div class="card-body">
-        coming soom
+       {{ slectedQuiz.name}}
     </div>
   </div>
 <br >
