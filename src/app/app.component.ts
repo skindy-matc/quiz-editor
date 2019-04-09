@@ -43,13 +43,20 @@ export class AppComponent implements OnInit {
 
   }
 
+  serviceDown = false;
+
   ngOnInit() {
     this.qSvc.getQuizzes().subscribe(
       (data) => {
         console.log(data);
+        this.quizzes = (<any[]>data).map(x => ({
+          name: x.name
+          , numberOfQuestions: x.numberQuestions
+        }))
       }
       , (error) => {
         console.log(error);
+        this.serviceDown = true;
       }
 
     ); 
