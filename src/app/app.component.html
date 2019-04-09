@@ -7,7 +7,7 @@
         <br>
         <div class="list-group">
           <a
-          [class.active]="q === selectedQuiz"
+          [class.active] = "q === selectedQuiz"
           (click)="selectQuiz(q)"
           href="#" 
           *ngFor="let q of quizzes" 
