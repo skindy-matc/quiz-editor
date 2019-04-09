@@ -45,6 +45,10 @@ export class AppComponent implements OnInit {
 
   // so use ngOnInit instead
   ngOnInit() {
-    this.quizzes = this.qSvc.getQuizzes();
+    // rename numberQuestions property to numberOfQuestions 
+    this.quizzes = this.qSvc.getQuizzes().map(x => ({
+      name: x.name,
+      numberOfQuestions: x.numberQuestions
+    }));
   }
 }
