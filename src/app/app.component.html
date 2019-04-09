@@ -30,8 +30,7 @@ Here are some links to help you start: </h2>
   <button class="btn btn-outline-primary">add new quiz</button>
   <br><br>
   <div class="list-group">
-  <div class="list-group-item"> foo</div>
-
+  <div *ngFor="let q of quizzes" class="list-group-item-action"> {{q.name}}</div>
 </div>
 </div>
 

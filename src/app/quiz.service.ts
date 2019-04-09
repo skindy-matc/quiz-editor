@@ -9,8 +9,8 @@ export class QuizService {
 
   getQuizzes() {
     return [
-      {name: 'Quiz 1', numberOfQuestion: 3}
-      , {name: 'Quiz 2', numberOfQuestion: 0}
+      {name: 'Quiz 1', numberOfQuestions: 3}
+      , {name: 'Quiz 2', numberOfQuestions: 0}
     ];
   }
 }
