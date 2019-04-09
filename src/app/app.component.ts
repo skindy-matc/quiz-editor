@@ -18,6 +18,7 @@ export class AppComponent implements OnInit{
     //Use the quiz service here , but ... If it fails , the creation
     //of the componeb fails : )
   }
+  serviceDown = false;
   quizzes: QuizDisplay[] = [];
   selectedQuiz: QuizDisplay = undefined;
   selectQuiz(quiz:QuizDisplay) {
@@ -40,12 +41,20 @@ export class AppComponent implements OnInit{
   ngOnInit() {
 
     // console.log(this.qSvc.getQuizzes());
-    this.quizzes = this.qSvc.getQuizzes().map(x=> ({
-      name : x.name
-      ,numberOfQuestions: x.numberQuestions
-    }));
-
-  }
+ this.qSvc.getQuizzes().subscribe(
+   (data) => {
+   console.log(data);
+   this.quizzes = (<any[]> data).map(x=>({
+     name:x.name
+     ,numberOfQuestions: x.numberQuestions
+   }));
+ }
+ ,(error)=>{
+  console.log(error);
+ }
+);
+   
+  };
 
   title = 'quiz-editor';
   myWidth = 250;
