@@ -26,6 +26,23 @@ export class AppComponent implements OnInit {
     this.selectedQuiz = q;
   }
 
+  addNewQuiz() {
+    //CREATE THE NEW QUIZ
+    const newQuiz: QuizDisplay = {
+      name: "Untitled Quiz"
+      , numberOfQuestions: 0
+    };
+
+    //CREATE A NEW QUIZ LIST WITH NEW QUIZ, 
+    this.quizzes = [
+      ...this.quizzes
+      , newQuiz
+    ];
+
+    //SELECT THE NEWLY ADDED QUIZ
+    this.selectedQuiz = newQuiz;
+
+  }
 
   ngOnInit() {
     //console.log(this.qSvc.getQuizzes());

@@ -27,7 +27,11 @@ Here are some links to help you start: </h2>
 
 <div class="col-md-4"> 
   <br>
-  <button class="btn btn-outline-primary">add new quiz</button>
+  <button 
+  (click)="addNewQuiz()"
+  class="btn btn-outline-primary">
+  add new quiz
+</button>
   <br><br>
   <div class="list-group">
 
@@ -68,7 +72,7 @@ select one quiz
         general
     </div>
     <div class="card-body">
-       {{ slectedQuiz.name}}
+       {{selectedQuiz.name}}
     </div>
   </div>
 <br >
