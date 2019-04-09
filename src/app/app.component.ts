@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from './quiz.service';
 
+
+interface QuizDisplay{
+
+  name: string;
+  numberOfQuestions: number;
+
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,16 +16,16 @@ import { QuizService } from './quiz.service';
 })
 export class AppComponent implements OnInit{
 
-  /**
-   *
-   */
+  
   constructor(private qSVC: QuizService) {
     
     
   }
+  quizzes: QuizDisplay[] = [];
 
   ngOnInit= () => {
-    console.log(this.qSVC.getQuizzes());
+    // console.log(this.qSVC.getQuizzes());
+    this.quizzes = this.qSVC.getQuizzes();
   }
   title = 'quiz-editor';
   myWidth = 250;
