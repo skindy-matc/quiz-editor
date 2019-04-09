@@ -21,8 +21,26 @@ export class AppComponent implements OnInit {
   quizzes: QuizDisplay[] = [];
   selectedQuiz: QuizDisplay;
 
-  selectQuiz(q: QuizDisplay) {
+  selectQuiz = (q: QuizDisplay) => {
     this.selectedQuiz = q;
+  }
+
+  addNewQuiz = () => {
+
+    // create new quiz
+    const newQuiz: QuizDisplay = {
+      name: "Untitled Quiz",
+      numberOfQuestions: 0
+    };
+    
+    // create new list of quizzes with the new quiz
+    this.quizzes = [
+      ...this.quizzes,
+      newQuiz
+    ];
+
+    // update the selected quiz to the new quiz
+    this.selectedQuiz = newQuiz;
   }
 
   // so use ngOnInit instead
