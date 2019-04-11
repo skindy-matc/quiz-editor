@@ -3,16 +3,19 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    Quiz Service is Down! <br/>
+                    <h3>
+                        Quiz Service is Down! Please try again !<br/>
+                    </h3>
+
                 </div>
             </div>
         </div>
-
     </div>
-    <div class="row">
+    <div class="row" *ngIf="!serviceDown">
         <div class="col-md-4">
             <br>
-            <button (click)="addNewQiz()" class="btn btn-outline-primary">Add New Quiz</button>
+            <button (click)="addNewQiz()" class="btn btn-outline-primary">
+            Add New Quiz</button>
             <br>
             <br>
             <div class="list-group">
@@ -21,11 +24,18 @@
                     <span class="badge badge-secondary"
                     [class.bg-danger]="q.numberOfQuestions === 0">{{q.numberOfQuestions}}</span>
                 </a>
-
+            </div>
+        </div>
+        <div class="col-md-8" *ngIf="!selectedQuiz">
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    Select or add new quiz...
+                </div>
             </div>
         </div>
         <div class="col-md-8" *ngIf="selectedQuiz">
-            <br>
+            <br/>
             <button class="btn btn-outline-success">Save</button>
             <button class="btn btn-outline-link">Cancel</button>
             <br>
