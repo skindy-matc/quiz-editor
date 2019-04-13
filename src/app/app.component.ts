@@ -4,6 +4,11 @@ import { QuizService } from './quiz.service';
 interface QuizDisplay {
   name: string;
   numberOfQuestions: number;
+  questions: QuestionDisplay[]
+}
+
+interface QuestionDisplay {
+  name: string;
 }
 
 @Component({
@@ -29,8 +34,9 @@ export class AppComponent implements OnInit {
 
     // Create the new quiz.
     const newQuiz: QuizDisplay = {
-      name: "Untitled Quiz"
+      name: "New Untitled Quiz"
       , numberOfQuestions: 0
+      , questions: []
     };
 
     // Create a new quiz list with the new quiz...
@@ -44,6 +50,15 @@ export class AppComponent implements OnInit {
     // Select the newly added quiz.
     this.selectedQuiz = newQuiz; 
   }
+
+  // Create new quiz question.
+  addNewQuestion() {
+    this.selectedQuiz.questions = [
+      ...this.selectedQuiz.questions
+      , { name: "New Untitled Question" }
+    ];
+  }
+
 
   serviceDown = false;
 
@@ -66,7 +81,7 @@ export class AppComponent implements OnInit {
     );
 
   };
-
+  
   title = 'quiz-editor';
   myWidth = 250;
 

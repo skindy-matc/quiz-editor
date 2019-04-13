@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row" *ngIf="serviceDown">
     <div class="col-md-12">
-      <br>
+      <br />
       <div class="card">
           <div class="card-body">
             <h3>
@@ -13,15 +13,15 @@
   </div>
   <div class="row" *ngIf="!serviceDown">
     <div class="col-md-4">
-      <br>
+      <br />
       <button 
         (click)="addNewQuiz()"
         class="btn btn-outline-primary"
         >
           Add New Quiz
       </button>
-      <br>
-      <br>
+      <br />
+      <br />
       <div class="list-group">
         <a
           [class.active] = "q === selectedQuiz"
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="col-md-8" *ngIf="!selectedQuiz">
-      <br>
+      <br />
       <div class="card">
         <div class="card-body">
           Select or add a new quiz...
@@ -48,11 +48,11 @@
       </div>
     </div>
     <div class="col-md-8" *ngIf="selectedQuiz">
-      <br>
+      <br />
       <button class="btn btn-outline-success">Save</button>
       <button class="btn btn-link">Cancel</button>
-      <br>
-      <br>
+      <br />
+      <br />
       <div class="card">  
         <div class="card-header">
           General
@@ -64,14 +64,17 @@
             class="form-control">
         </div>
       </div>
-      <br>
+      <br />
       <div class="card">
         <div class="card-header">
           Questions
         </div>
         <div class="card-body">
+          <button (click)="addNewQuestion()" class="btn btn-outline-primary">Add New Question</button>
+          <br />
+          <br />
           <div  class="row" *ngFor="let q of selectedQuiz.questions">
-            <br>
+            <br />
             <div class="col-md-9">
                 <input
                   type="text" 
@@ -79,14 +82,14 @@
                   class="form-control">
             </div>
             <div class="col-md-3">
-              <button>Remove</button>
+              <button class="btn btn-outline-danger" >Remove</button>
             </div>
-            <br>
-            <br>
+            <br />
+            <br />
           </div>
         </div>
       </div>
-      <br>
+      <br />
       <div class="card">
         <div class="card-header">
           Other
