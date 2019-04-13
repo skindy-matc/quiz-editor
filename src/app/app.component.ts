@@ -63,6 +63,12 @@ export class AppComponent implements OnInit {
     this.selectedQuiz.questions = this.selectedQuiz.questions.filter(x => x !== questionToDelete);
   }
 
+  deleteQuiz(quizToDelete: QuizDisplay) {
+    this.quizzes = this.quizzes.filter(x => x !== quizToDelete);
+    this.selectedQuiz = undefined;
+  }
+
+
   serviceDown = false;
 
   ngOnInit() {
