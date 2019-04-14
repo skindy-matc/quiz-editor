@@ -1,7 +1,6 @@
 <div class="container">
   <div class="row" *ngIf="serviceDown">
-    <div class="col-md-12">
-      <br><br>
+    <div class="col-md-12 mt-4">
       <div class="card">
         <div class="card-header">
           Quiz Service Down
@@ -13,15 +12,13 @@
     </div>
   </div>
   <div class="row" *ngIf="!serviceDown">
-    <div class="col-md-4">
-      <br>
+    <div class="col-md-4 mt-4">
       <button 
         (click)="addNewQuiz()"
         class="btn btn-outline-primary">
         Add New Quiz
       </button>
-      <br><br>
-      <div class="list-group">
+      <div class="list-group mt-4">
         <a 
           (click)="selectQuiz(q)"
           [class.active]="q == selectedQuiz"
@@ -37,22 +34,21 @@
         </a>
       </div>
     </div>
-    <div class="col-md-8" *ngIf="!selectedQuiz">
-      <br>
+    <div class="col-md-8 mt-4" *ngIf="!selectedQuiz">
       <div class="card">
         <div class="card-body">
           Select a quiz or add a new quiz to get started...
         </div>
       </div>
     </div>
-    <div class="col-md-8" *ngIf="selectedQuiz">
+    <div class="col-md-8 mt-4" *ngIf="selectedQuiz">
       <br>
       <button class="btn btn-outline-success">Save</button>
       <button class="btn btn-link">Cancel</button>
-      <br><br>
-      <div class="card">
+      <button class="btn btn-outline-danger float-right">Delete This Quiz</button>
+      <div class="card mt-4">
         <div class="card-header">
-          General
+          Name
         </div>
         <div class="card-body">
           <input 
@@ -62,12 +58,12 @@
             maxLength="30">
         </div>
       </div>
-      <br>
-      <div class="card">
+      <div class="card mt-4">
         <div class="card-header">
           Questions
         </div>
         <div class="card-body">
+          <button class="btn btn-outline-success mb-4">Add New Question</button>
           <div class="input-group mb-3" *ngFor="let q of selectedQuiz.questions">
             <input 
               type="text" 
@@ -79,13 +75,12 @@
           </div>
         </div>
       </div>
-      <br>
-      <div class="card">
+      <div class="card mt-4">
         <div class="card-header">
           Other
         </div>
         <div class="card-body">
-          <button class="btn btn-outline-danger">Delete This Quiz</button>
+          <button class="btn btn-outline-danger">Delete Quiz</button>
         </div>
       </div>
     </div>
