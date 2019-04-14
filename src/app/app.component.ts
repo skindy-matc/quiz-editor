@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from './quiz.service';
+import { v4 as uuid } from 'uuid';
 
 interface QuizDisplay {
+  id: string;
   name: string;
   questions: object[];
+}
+
+interface QuestionDisplay {
+  id: string;
+  name: string;
 }
 
 @Component({
@@ -29,6 +36,7 @@ export class AppComponent implements OnInit {
 
     // create new quiz
     const newQuiz: QuizDisplay = {
+      id: uuid(),
       name: "Untitled Quiz",
       questions: []
     };
@@ -45,13 +53,18 @@ export class AppComponent implements OnInit {
 
   addNewQuestion = () => {
     // create new question
-    const question = {
+    const question: QuestionDisplay = {
+      id: uuid(),
       name: "New untitled question"
     }
     this.selectedQuiz.questions = [
       ...this.selectedQuiz.questions,
       question
     ];
+  }
+
+  removeQuestion = (question: QuestionDisplay) => {
+    this.selectedQuiz.questions = this.selectedQuiz.questions.filter((q: QuestionDisplay) => q.id != question.id);
   }
 
   serviceDown = false;
@@ -63,6 +76,7 @@ export class AppComponent implements OnInit {
       (data) => {
         console.log(data);
         this.quizzes = (<any[]> data).map(x => ({
+          id: uuid(),
           name: x.name,
           questions: x.questions
         }));
