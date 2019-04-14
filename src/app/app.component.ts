@@ -3,7 +3,7 @@ import { QuizService } from './quiz.service';
 
 interface QuizDisplay {
   name: string;
-  questions: string[];
+  questions: object[];
 }
 
 @Component({
@@ -41,6 +41,17 @@ export class AppComponent implements OnInit {
 
     // update the selected quiz to the new quiz
     this.selectedQuiz = newQuiz;
+  }
+
+  addNewQuestion = () => {
+    // create new question
+    const question = {
+      name: "New untitled question"
+    }
+    this.selectedQuiz.questions = [
+      ...this.selectedQuiz.questions,
+      question
+    ];
   }
 
   serviceDown = false;
