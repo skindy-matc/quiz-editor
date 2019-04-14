@@ -68,7 +68,15 @@
           Questions
         </div>
         <div class="card-body">
-          Coming soon!
+          <div class="input-group mb-3" *ngFor="let q of selectedQuiz.questions">
+            <input 
+              type="text" 
+              class="form-control"
+              value="{{ q.name }}">
+              <div class="input-group-append">
+                <button class="btn btn-outline-danger">Remove</button>
+              </div>
+          </div>
         </div>
       </div>
       <br>
