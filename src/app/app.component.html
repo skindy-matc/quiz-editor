@@ -29,7 +29,7 @@
           <span 
             class="badge badge-secondary"
             [class.bg-danger]="q.questions.length == 0">
-            {{ q.questions.length }} questions
+            {{ q.questions.length }} {{ q.questions.length == 1 ? 'question' : 'questions' }}
           </span>
         </a>
       </div>
