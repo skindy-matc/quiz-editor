@@ -78,12 +78,15 @@ export class AppComponent implements OnInit {
     // rename numberQuestions property to numberOfQuestions 
     this.qSvc.getQuizzes().subscribe(
       (data) => {
-        console.log(data);
         this.quizzes = (<any[]> data).map(x => ({
           id: uuid(),
           name: x.name,
-          questions: x.questions
+          questions: (<any[]> x.questions).map(q => ({
+            id: uuid(),
+            name: q.name
+          }))
         }));
+        console.log(this.quizzes);
       },
       (error) => {
         console.log(error);
