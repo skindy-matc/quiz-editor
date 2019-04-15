@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 interface QuizDisplay {
   id: string;
   name: string;
-  questions: object[];
+  questions: QuestionDisplay[];
 }
 
 interface QuestionDisplay {
