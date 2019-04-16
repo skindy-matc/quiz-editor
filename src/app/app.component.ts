@@ -3,6 +3,7 @@ import { QuizService } from './quiz.service';
 
 interface QuizDisplay {
   name: string;
+  description: string;
   questions: QuestionDisplay[];
 }
 
@@ -38,6 +39,7 @@ export class AppComponent implements OnInit {
     // create new quiz
     const newQuiz: QuizDisplay = {
       name: "Untitled Quiz",
+      description: "Untitled Description",
       questions: []
     };
     
@@ -80,6 +82,7 @@ export class AppComponent implements OnInit {
       (data) => {
         this.quizzes = (<any[]> data).map(x => ({
           name: x.name,
+          description: "Grabbed from REST API endpoint",
           questions: x.questions
         }));
         console.log(this.quizzes);

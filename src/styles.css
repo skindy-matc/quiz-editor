@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+div.card > div.card-header > button.btn.btn-link {
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+div.card > div.card-header > button.btn.btn-link:focus {
+    text-decoration: none;
+}
