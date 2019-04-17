@@ -53,16 +53,29 @@
         class="btn btn-outline-danger float-right">
         Delete This Quiz
       </button>
-      <div class="card mt-4">
-        <div class="card-header">
-          Name
-        </div>
-        <div class="card-body">
-          <input 
-            type="text" 
-            [(ngModel)]="selectedQuiz.name"
-            class="form-control">
-        </div>
+      <div class="mt-4">
+        <ngb-accordion activeIds="static-1">
+          <ngb-panel id="static-1" title="Name">
+            <ng-template ngbPanelContent>
+                <input 
+                  type="text" 
+                  [(ngModel)]="selectedQuiz.name" 
+                  class="form-control"
+                  placement="top" 
+                  ngbTooltip="Edit quiz name">
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="static-2" title="Description">
+            <ng-template ngbPanelContent>
+              <input 
+                type="text" 
+                [(ngModel)]="selectedQuiz.description" 
+                class="form-control" 
+                placement="top" 
+                ngbTooltip="Edit quiz description">
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
       </div>
       <div class="card mt-4">
         <div class="card-header">
@@ -78,7 +91,9 @@
             <input 
               type="text"
               [(ngModel)]="q.name"
-              class="form-control">
+              class="form-control"
+              placement="left" 
+              ngbTooltip="Edit question">
               <div class="input-group-append">
                 <button 
                   (click)="removeQuestion(q)"
